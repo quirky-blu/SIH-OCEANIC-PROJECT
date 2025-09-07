@@ -302,7 +302,3 @@ async def query_geojson_stream(request: QueryRequest):
     # For true streaming, you would use FastAPI's StreamingResponse
     # This is a placeholder that returns the same data as the regular query endpoint
     return await query_geojson(request)
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
