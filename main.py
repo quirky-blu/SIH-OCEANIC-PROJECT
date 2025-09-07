@@ -10,21 +10,25 @@ import httpx
 import asyncio
 from dotenv import load_dotenv
 
-from azure.ai.inference import ChatCompletionsClient
-from azure.ai.inference.models import SystemMessage, UserMessage
-from azure.core.credentials import AzureKeyCredential
-
-# GitHub Models configuration
-AZURE_ENDPOINT = "https://models.github.ai/inference"
-GPT_MODEL = "openai/gpt-4.1"  # or "gpt-4o" if you prefer
- 
-# Load environment variables
+from openai import OpenAI
+from dotenv import load_dotenv
+# Make sure your new GitHub PAT is set as an env variable:
+# export GITHUB_TOKEN=ghp_xxx...
+# or put it in a .env and load before running.
 load_dotenv()
+
+client = OpenAI(
+    base_url="https://models.github.ai/inference",
+    api_key=os.getenv("GITHUB_TOKEN")
+)
+
 current_dir = Path(__file__).parent
 env_file = current_dir / '.env'
 load_dotenv(env_file)
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+# Load environment variables
+
 
 app = FastAPI(title="GeoJSON Query API", version="1.0.0")
 
@@ -115,11 +119,24 @@ def extract_all_coordinates(geometry):
                 coords.extend(ring)
     
     return coords
+
+GPT_MODEL = "openai/gpt-4o"
+
+
 async def query_gpt4(prompt: str, available_files: List[str]) -> Dict[str, Any]:
     """Query GPT-4 via GitHub Models to determine which files to use and how to process them"""
     
-    folder_list_placeholder = ["Thunnus_albacares.geojson","Aidanosagitta_regularis.geojson","Charybdis__Archias__smithii.geojson","Conchoecetta_giesbrechti.geojson","Cossura_coasta.geojson","Cypridina_dentata.geojson","Euconchoecia_aculeata.geojson","Flaccisagitta_enflata.geojson","Hypnea_musciformis.geojson","Amphiprion_clarkii.geojson","Sardinella_longiceps.geojson","Metaconchoecia_rotundata.geojson","Noctiluca_scintillans.geojson","Orthoconchoecia_atlantica.geojson","Stolephorus_indicus.geojson","Proboscia_alata.geojson","Proceroecia_procera.geojson","Pseudanchialina_pusilla.geojson","Pterosagitta_draco.geojson","Rhizosolenia_hebetata.geojson","Serratosagitta_pacifica.geojson","Rastrelliger_kanagurta.geojson","Siriella_gracilis.geojson","Thalassionema_nitzschioides.geojson","Tripos_furca.geojson","Ulva_lactuca.geojson"]
-
+    folder_list_placeholder = [
+        "Thunnus_albacares.geojson","Aidanosagitta_regularis.geojson","Charybdis__Archias__smithii.geojson",
+        "Conchoecetta_giesbrechti.geojson","Cossura_coasta.geojson","Cypridina_dentata.geojson",
+        "Euconchoecia_aculeata.geojson","Flaccisagitta_enflata.geojson","Hypnea_musciformis.geojson",
+        "Amphiprion_clarkii.geojson","Sardinella_longiceps.geojson","Metaconchoecia_rotundata.geojson",
+        "Noctiluca_scintillans.geojson","Orthoconchoecia_atlantica.geojson","Stolephorus_indicus.geojson",
+        "Proboscia_alata.geojson","Proceroecia_procera.geojson","Pseudanchialina_pusilla.geojson",
+        "Pterosagitta_draco.geojson","Rhizosolenia_hebetata.geojson","Serratosagitta_pacifica.geojson",
+        "Rastrelliger_kanagurta.geojson","Siriella_gracilis.geojson","Thalassionema_nitzschioides.geojson",
+        "Tripos_furca.geojson","Ulva_lactuca.geojson"
+    ]
     
     system_prompt = f"""You are an expert at analyzing natural language queries about geospatial data and determining which GeoJSON files to query.
 {folder_list_placeholder}
@@ -137,26 +154,18 @@ Respond in JSON format with:
 }}"""
     
     try:
-        client = ChatCompletionsClient(
-            endpoint=AZURE_ENDPOINT,
-            credential=AzureKeyCredential(GITHUB_TOKEN),
-        )
-        
-        # Use dictionary format (this is what worked in your test!)
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": prompt}
-        ]
-        
-        response = client.complete(
-            messages=messages,
+        response = client.chat.completions.create(
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            model=GPT_MODEL,
             temperature=0.1,
-            model=GPT_MODEL
+            max_tokens=500
         )
-        
+
         ai_response = response.choices[0].message.content
-        
-        # Try to parse JSON response
+
         try:
             return json.loads(ai_response)
         except json.JSONDecodeError:
@@ -166,7 +175,7 @@ Respond in JSON format with:
                 "response_description": f"Could not parse AI response: {ai_response}",
                 "search_terms": []
             }
-                
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error querying GPT-4 API: {str(e)}")
 
@@ -302,3 +311,7 @@ async def query_geojson_stream(request: QueryRequest):
     # For true streaming, you would use FastAPI's StreamingResponse
     # This is a placeholder that returns the same data as the regular query endpoint
     return await query_geojson(request)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
