@@ -17,7 +17,7 @@ from azure.core.credentials import AzureKeyCredential
 # GitHub Models configuration
 AZURE_ENDPOINT = "https://models.github.ai/inference"
 GPT_MODEL = "openai/gpt-4.1"  # or "gpt-4o" if you prefer
-
+ 
 # Load environment variables
 load_dotenv()
 current_dir = Path(__file__).parent
