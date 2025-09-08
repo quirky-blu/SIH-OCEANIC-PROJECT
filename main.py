@@ -116,6 +116,18 @@ def extract_all_coordinates(geometry):
 
     return coords
 
+def check_location_request_in_prompt(prompt: str) -> bool:
+    """Check if the user is specifically requesting location-based filtering in their prompt"""
+    location_keywords = [
+        'coordinate', 'coordinates', 'lat', 'latitude', 'lon', 'longitude',
+        'location', 'area', 'region', 'boundary', 'bounds', 'within',
+        'near', 'around', 'specific location', 'specific area',
+        'north', 'south', 'east', 'west', 'between', 'range'
+    ]
+    
+    prompt_lower = prompt.lower()
+    return any(keyword in prompt_lower for keyword in location_keywords)
+
 def smart_file_matcher(prompt: str, available_files: List[str]) -> List[str]:
     """
     Fallback function to match files based on keywords if AI fails
@@ -333,11 +345,15 @@ async def test_query(request: QueryRequest):
             matched_files = available_files[:1]
 
         result_data = {}
+        
+        # Check if user is requesting location-based filtering in their prompt
+        location_requested_in_prompt = check_location_request_in_prompt(request.prompt)
 
         for filename in matched_files:
             if filename in geojson_data:
                 file_data = geojson_data[filename]
-                if request.coordinates:
+                # Apply coordinate filtering if coordinates provided AND user requested location filtering
+                if request.coordinates and location_requested_in_prompt:
                     filtered_data = filter_geojson_by_bounds(file_data, request.coordinates)
                     if filtered_data['features']:
                         result_data[filename] = filtered_data
@@ -347,13 +363,14 @@ async def test_query(request: QueryRequest):
         return {
             "status": "success",
             "query_analysis": {
-                "query_type": "location_based" if request.coordinates else "global",
+                "query_type": "location_based" if (request.coordinates and location_requested_in_prompt) else "global",
                 "files_to_query": matched_files,
                 "response_description": f"Test query for: {request.prompt}",
-                "search_terms": request.prompt.lower().split()[:3]
+                "search_terms": request.prompt.lower().split()[:3],
+                "location_filtering_applied": request.coordinates and location_requested_in_prompt
             },
-            "query_type": "location_based" if request.coordinates else "global",
-            "coordinates_used": request.coordinates,
+            "query_type": "location_based" if (request.coordinates and location_requested_in_prompt) else "global",
+            "coordinates_used": request.coordinates if location_requested_in_prompt else None,
             "files_queried": list(result_data.keys()),
             "data": result_data,
             "summary": {
@@ -394,23 +411,37 @@ async def query_geojson(request: QueryRequest):
         print(f"Valid files to query: {valid_files}")
 
         result_data = {}
+        
+        # Check if user is requesting location-based filtering in their prompt
+        location_requested_in_prompt = check_location_request_in_prompt(request.prompt)
 
         for filename in valid_files:
             if filename in geojson_data:
                 file_data = geojson_data[filename]
 
-                if query_type == "location_based" and request.coordinates:
+                # Apply coordinate filtering if:
+                # 1. Coordinates are provided AND
+                # 2. Either the query_type is "location_based" OR user specifically requested location filtering in prompt
+                if request.coordinates and (query_type == "location_based" or location_requested_in_prompt):
                     filtered_data = filter_geojson_by_bounds(file_data, request.coordinates)
                     if filtered_data['features']:
                         result_data[filename] = filtered_data
                 else:
                     result_data[filename] = file_data
 
+        # Update query_type if location filtering was applied
+        final_query_type = query_type
+        if request.coordinates and location_requested_in_prompt:
+            final_query_type = "location_based"
+
         return {
             "status": "success",
-            "query_analysis": ai_analysis,
-            "query_type": query_type,
-            "coordinates_used": request.coordinates if query_type == "location_based" else None,
+            "query_analysis": {
+                **ai_analysis,
+                "location_filtering_applied": request.coordinates and (query_type == "location_based" or location_requested_in_prompt)
+            },
+            "query_type": final_query_type,
+            "coordinates_used": request.coordinates if (query_type == "location_based" or location_requested_in_prompt) else None,
             "files_queried": list(result_data.keys()),
             "data": result_data,
             "summary": {
@@ -430,4 +461,4 @@ async def query_geojson_stream(request: QueryRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
