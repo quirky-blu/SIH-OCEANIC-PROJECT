@@ -137,11 +137,21 @@ def smart_file_matcher(prompt: str, available_files: List[str]) -> List[str]:
     
     # Define keyword mappings
     keyword_mappings = {
-        # 'pollution': ['high_pollution_areas','extremely_high_pollution_areas']
-        # 'shipwrecks' : ['shipwrecks']
-        # 'resources' : ['petroleum','magnesium'] # 3 aur add kar lena
-        # 'oil' : ['petroleum']
-        # 'ores' : ['magnesium']
+        'pollution': ['high_pollution_areas',"moderate_pollution_areas",'extremely_high_pollution_areas'],
+        'resources' : ['petroleum_reserves','coal_deposits','manganese_ore_deposits','iron_ore_deposits','copper_ore_deposits'],
+        'oil' : ['petroleum_reserves'],
+        'ores' : ['coal_deposits','manganese_ore_deposits','iron_ore_deposits','copper_ore_deposits'],
+        "high pollution areas": ["high_pollution_areas"],
+        "extremely high pollution areas": ["extremely_high_pollution_areas"], 
+        "moderate pollution areas": ["moderate_pollution_areas"],
+        "petroleum reserves": ["petroleum_reserves"],
+        "iron ore deposits": ["iron_ore_deposits"],
+        "coal deposits": ["coal_deposits"],
+        "manganese ore deposits": ["manganese_ore_deposits"], 
+        "copper ore deposits": ["copper_ore_deposits"],
+        "gold ore deposits": ["gold_ore_deposits"],
+        "historical shipwrecks": ["historical_shipwrecks"],
+        
 
         'fish': ['Thunnus_albacares', 'Sardinella_longiceps', 'Stolephorus_indicus', 'Rastrelliger_kanagurta'],
         'tuna': ['Thunnus_albacares'],
@@ -462,3 +472,4 @@ async def query_geojson_stream(request: QueryRequest):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
