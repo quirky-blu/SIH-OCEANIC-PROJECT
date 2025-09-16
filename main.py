@@ -25,7 +25,7 @@ current_dir = Path(__file__).parent
 env_file = current_dir / '.env'
 load_dotenv(env_file)
 
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN_OLD")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 app = FastAPI(title="GeoJSON Query API", version="1.0.0")
 
@@ -472,4 +472,5 @@ async def query_geojson_stream(request: QueryRequest):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
 
