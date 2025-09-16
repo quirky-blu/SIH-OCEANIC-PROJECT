@@ -1,0 +1,725 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 19.64,
+        "decimalLongitude": 73.04,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.01273612062124,
+              19.611192844717692
+            ],
+            [
+              73.01273612062124,
+              19.66119284471769
+            ],
+            [
+              73.06273612062125,
+              19.66119284471769
+            ],
+            [
+              73.06273612062125,
+              19.611192844717692
+            ],
+            [
+              73.01273612062124,
+              19.611192844717692
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 20.34,
+        "decimalLongitude": 81.9,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              81.87704454431423,
+              20.318264777774722
+            ],
+            [
+              81.87704454431423,
+              20.36826477777472
+            ],
+            [
+              81.92704454431424,
+              20.36826477777472
+            ],
+            [
+              81.92704454431424,
+              20.318264777774722
+            ],
+            [
+              81.87704454431423,
+              20.318264777774722
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 10.76,
+        "decimalLongitude": 80.71,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.68574401686695,
+              10.730941872080773
+            ],
+            [
+              80.68574401686695,
+              10.780941872080774
+            ],
+            [
+              80.73574401686696,
+              10.780941872080774
+            ],
+            [
+              80.73574401686696,
+              10.730941872080773
+            ],
+            [
+              80.68574401686695,
+              10.730941872080773
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 8.92,
+        "decimalLongitude": 79.23,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.20926264288634,
+              8.895842307440228
+            ],
+            [
+              79.20926264288634,
+              8.945842307440229
+            ],
+            [
+              79.25926264288636,
+              8.945842307440229
+            ],
+            [
+              79.25926264288636,
+              8.895842307440228
+            ],
+            [
+              79.20926264288634,
+              8.895842307440228
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 11.32,
+        "decimalLongitude": 82.37,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              82.34390312990134,
+              11.296911794316381
+            ],
+            [
+              82.34390312990134,
+              11.346911794316382
+            ],
+            [
+              82.39390312990135,
+              11.346911794316382
+            ],
+            [
+              82.39390312990135,
+              11.296911794316381
+            ],
+            [
+              82.34390312990134,
+              11.296911794316381
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 10.58,
+        "decimalLongitude": 68.21,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              68.18835195089981,
+              10.558652714418718
+            ],
+            [
+              68.18835195089981,
+              10.608652714418719
+            ],
+            [
+              68.23835195089983,
+              10.608652714418719
+            ],
+            [
+              68.23835195089983,
+              10.558652714418718
+            ],
+            [
+              68.18835195089981,
+              10.558652714418718
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 13.91,
+        "decimalLongitude": 73.05,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.02655963791939,
+              13.887611421487613
+            ],
+            [
+              73.02655963791939,
+              13.937611421487613
+            ],
+            [
+              73.0765596379194,
+              13.937611421487613
+            ],
+            [
+              73.0765596379194,
+              13.887611421487613
+            ],
+            [
+              73.02655963791939,
+              13.887611421487613
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 18.95,
+        "decimalLongitude": 85.26,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.23336825447049,
+              18.929712929011075
+            ],
+            [
+              85.23336825447049,
+              18.97971292901107
+            ],
+            [
+              85.2833682544705,
+              18.97971292901107
+            ],
+            [
+              85.2833682544705,
+              18.929712929011075
+            ],
+            [
+              85.23336825447049,
+              18.929712929011075
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 12.02,
+        "decimalLongitude": 72.99,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.96232861701903,
+              11.992895975831397
+            ],
+            [
+              72.96232861701903,
+              12.042895975831398
+            ],
+            [
+              73.01232861701904,
+              12.042895975831398
+            ],
+            [
+              73.01232861701904,
+              11.992895975831397
+            ],
+            [
+              72.96232861701903,
+              11.992895975831397
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 16.27,
+        "decimalLongitude": 81.19,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              81.16037461325124,
+              16.24064117425423
+            ],
+            [
+              81.16037461325124,
+              16.290641174254226
+            ],
+            [
+              81.21037461325125,
+              16.290641174254226
+            ],
+            [
+              81.21037461325125,
+              16.24064117425423
+            ],
+            [
+              81.16037461325124,
+              16.24064117425423
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 10.87,
+        "decimalLongitude": 76.14,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.11085579927982,
+              10.840471902368291
+            ],
+            [
+              76.11085579927982,
+              10.890471902368292
+            ],
+            [
+              76.16085579927983,
+              10.890471902368292
+            ],
+            [
+              76.16085579927983,
+              10.840471902368291
+            ],
+            [
+              76.11085579927982,
+              10.840471902368291
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 21.17,
+        "decimalLongitude": 73.8,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.77767542272862,
+              21.14100626321732
+            ],
+            [
+              73.77767542272862,
+              21.191006263217318
+            ],
+            [
+              73.82767542272863,
+              21.191006263217318
+            ],
+            [
+              73.82767542272863,
+              21.14100626321732
+            ],
+            [
+              73.77767542272862,
+              21.14100626321732
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 12.51,
+        "decimalLongitude": 74.64,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.61570362136177,
+              12.480301811800013
+            ],
+            [
+              74.61570362136177,
+              12.530301811800014
+            ],
+            [
+              74.66570362136179,
+              12.530301811800014
+            ],
+            [
+              74.66570362136179,
+              12.480301811800013
+            ],
+            [
+              74.61570362136177,
+              12.480301811800013
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 8.7,
+        "decimalLongitude": 72.82,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              72.79182283201513,
+              8.677625944530716
+            ],
+            [
+              72.79182283201513,
+              8.727625944530716
+            ],
+            [
+              72.84182283201514,
+              8.727625944530716
+            ],
+            [
+              72.84182283201514,
+              8.677625944530716
+            ],
+            [
+              72.79182283201513,
+              8.677625944530716
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": -1.51,
+        "decimalLongitude": 81.9,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              81.8768736715752,
+              -1.5300662743941706
+            ],
+            [
+              81.8768736715752,
+              -1.4800662743941708
+            ],
+            [
+              81.92687367157521,
+              -1.4800662743941708
+            ],
+            [
+              81.92687367157521,
+              -1.5300662743941706
+            ],
+            [
+              81.8768736715752,
+              -1.5300662743941706
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 12.29,
+        "decimalLongitude": 74.9,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.87359925277543,
+              12.267667852479223
+            ],
+            [
+              74.87359925277543,
+              12.317667852479223
+            ],
+            [
+              74.92359925277545,
+              12.317667852479223
+            ],
+            [
+              74.92359925277545,
+              12.267667852479223
+            ],
+            [
+              74.87359925277543,
+              12.267667852479223
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 8.92,
+        "decimalLongitude": 76.57,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.54612797883794,
+              8.89336305480814
+            ],
+            [
+              76.54612797883794,
+              8.94336305480814
+            ],
+            [
+              76.59612797883796,
+              8.94336305480814
+            ],
+            [
+              76.59612797883796,
+              8.89336305480814
+            ],
+            [
+              76.54612797883794,
+              8.89336305480814
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 14.61,
+        "decimalLongitude": 67.29,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              67.26477671206693,
+              14.587835103371951
+            ],
+            [
+              67.26477671206693,
+              14.637835103371952
+            ],
+            [
+              67.31477671206694,
+              14.637835103371952
+            ],
+            [
+              67.31477671206694,
+              14.587835103371951
+            ],
+            [
+              67.26477671206693,
+              14.587835103371951
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 21.84,
+        "decimalLongitude": 89.75,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              89.72803885305471,
+              21.81071664704705
+            ],
+            [
+              89.72803885305471,
+              21.86071664704705
+            ],
+            [
+              89.77803885305472,
+              21.86071664704705
+            ],
+            [
+              89.77803885305472,
+              21.81071664704705
+            ],
+            [
+              89.72803885305471,
+              21.81071664704705
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "species": "Extremely high pollution areas",
+        "decimalLatitude": 16.38,
+        "decimalLongitude": 73.99,
+        "hex_color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.96850049780956,
+              16.350007183366387
+            ],
+            [
+              73.96850049780956,
+              16.400007183366384
+            ],
+            [
+              74.01850049780957,
+              16.400007183366384
+            ],
+            [
+              74.01850049780957,
+              16.350007183366387
+            ],
+            [
+              73.96850049780956,
+              16.350007183366387
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
